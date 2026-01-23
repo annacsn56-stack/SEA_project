@@ -1,0 +1,182 @@
+Sample,KEL1_PLA1_proxy,Year,join_id,Sample_metadata_original,Province,K13,PMII,MDR1,CRT_PPQ_status
+7620_s39_sorted,KEL1/PLA1,2016,7620,7620,Sieam Reap,C580Y,multi,mono,mutant
+7644_s58_sorted,KEL1/PLA1,2016,7644,7644,Pursat,C580Y,multi,mono,mutant
+7676_s35_sorted,other,2016,7676,7676,Pursat,C580Y,mono,mono,sensible
+7704_s4_sorted,KEL1/PLA1,2016,7704,7704,Pursat,C580Y,multi,mono,mutant
+7705_s51_sorted,KEL1/PLA1,2016,7705,7705,Mondolkiri,C580Y,multi,mono,mutant
+7709_s14_sorted,KEL1/PLA1,2016,7709,7709,Pursat,C580Y,multi,mono,mutant
+7722_s61_sorted,KEL1/PLA1,2016,7722,7722,Pursat,C580Y,multi,mono,mutant
+7729_s41_sorted,KEL1/PLA1,2016,7729,7729,Pursat,C580Y,multi,mono,mutant
+7732_s52_sorted,KEL1/PLA1,2016,7732,7732,Mondolkiri,C580Y,multi,mono,mutant
+7738_s63_sorted,other,2016,7738,7738,Mondolkiri,C580Y,mono,mono,sensible
+7742_s64_sorted,KEL1/PLA1,2016,7742,7742,Mondolkiri,C580Y,multi,mono,sensible
+7754_s65_sorted,KEL1/PLA1,2016,7754,7754,Pursat,C580Y,multi,mono,sensible
+7767_s17_sorted,KEL1/PLA1,2016,7767,7767,Pursat,C580Y,multi,mono,sensible
+7780_s53_sorted,KEL1/PLA1,2016,7780,7780,Mondolkiri,C580Y,multi,mono,mutant
+7796_s54_sorted,KEL1/PLA1,2016,7796,7796,Mondolkiri,C580Y,multi,mono,mutant
+7815_s66_sorted,KEL1/PLA1,2016,7815,7815,Mondolkiri,C580Y,multi,mono,mutant
+7816_s31_sorted,KEL1/PLA1,2016,7816,7816,Mondolkiri,C580Y,multi,mono,mutant
+7828_s56_sorted,KEL1/PLA1,2016,7828,7828,Mondolkiri,C580Y,multi,mono,sensible
+8173_s1_sorted,KEL1/PLA1,2017,8173,8173,Mondolkiri,C580Y,multi,mono,mutant
+8176_s2_sorted,KEL1/PLA1,2017,8176,8176,Rattanakiri,C580Y,multi,mono,mutant
+8187_s3_sorted,KEL1/PLA1,2017,8187,8187,Rattanakiri,C580Y,multi,mono,mutant
+8188_s4_sorted,KEL1/PLA1,2017,8188,8188,Rattanakiri,C580Y,multi,mono,sensible
+8210_s6_sorted,KEL1/PLA1,2017,8210,8210,Kampong Speu,C580Y,multi,mono,mutant
+8222_s8_sorted,KEL1/PLA1,2017,8222,8222,Kampong Speu,C580Y,multi,mono,mutant
+8225_s9_sorted,KEL1/PLA1,2017,8225,8225,Kampong Speu,C580Y,multi,mono,mutant
+8226_s10_sorted,KEL1/PLA1,2017,8226,8226,Kampong Speu,C580Y,multi,mono,mutant
+8227_s11_sorted,KEL1/PLA1,2017,8227,8227,Kampong Speu,C580Y,multi,mono,mutant
+8228_s12_sorted,KEL1/PLA1,2017,8228,8228,Kampong Speu,C580Y,multi,mono,mutant
+8236_s13_sorted,KEL1/PLA1,2017,8236,8236,Kampong Speu,C580Y,multi,mono,sensible
+8237_align_sorted,other,2017,8237,8237,Kampong Speu,Y493H,multi,multi,mutant
+8239_s14_sorted,KEL1/PLA1,2017,8239,8239,Mondolkiri,C580Y,multi,mono,mutant
+8243_s15_sorted,KEL1/PLA1,2017,8243,8243,Rattanakiri,C580Y,multi,mono,mutant
+8246_s16_sorted,KEL1/PLA1,2017,8246,8246,Mondolkiri,C580Y,multi,mono,mutant
+8248_s17_sorted,KEL1/PLA1,2017,8248,8248,Mondolkiri,C580Y,multi,mono,mutant
+8251_s19_sorted,KEL1/PLA1,2017,8251,8251,Kampong Speu,C580Y,multi,mono,mutant
+8260_s20_sorted,KEL1/PLA1,2017,8260,8260,Rattanakiri,C580Y,multi,mono,mutant
+8261_s21_sorted,other,2017,8261,8261,Kampong Speu,C580Y,mono,mono,mutant
+8267_s22_sorted,other,2017,8267,8267,Pursat,C580Y,mono,mono,sensible
+8269_s23_sorted,KEL1/PLA1,2017,8269,8269,Kampong Speu,C580Y,multi,multi,mutant
+8270_s24_sorted,other,2017,8270,8270,Kampong Speu,C580Y,mono,mono,mutant
+8272_s26_sorted,KEL1/PLA1,2017,8272,8272,Pursat,C580Y,multi,mono,mutant
+8281_s27_sorted,other,2017,8281,8281,Rattanakiri,C580Y,mono,mono,sensible
+8283_s28_sorted,other,2017,8283,8283,Kampong Speu,C580Y,mono,mono,sensible
+8285_s30_sorted,KEL1/PLA1,2017,8285,8285,Pursat,C580Y,multi,mono,mutant
+8286_s31_sorted,KEL1/PLA1,2017,8286,8286,Pursat,C580Y,multi,mono,mutant
+8287_s32_sorted,other,2017,8287,8287,Mondolkiri,C580Y,mono,mono,sensible
+8288_s33_sorted,KEL1/PLA1,2017,8288,8288,Mondolkiri,C580Y,multi,mono,mutant
+8315_s34_sorted,KEL1/PLA1,2017,8315,8315,Rattanakiri,C580Y,multi,mono,sensible
+8375_s35_sorted,other,2017,8375,8375,Mondolkiri,C580Y,mono,mono,sensible
+8501_s37_sorted,KEL1/PLA1,2017,8501,8501,Kampong Speu,C580Y,multi,mono,mutant
+8570_s38_sorted,KEL1/PLA1,2018,8570,8570,Rattanakiri,C580Y,multi,mono,mutant
+8579_s39_sorted,KEL1/PLA1,2018,8579,8579,Mondolkiri,C580Y,multi,mono,mutant
+8580_s40_sorted,KEL1/PLA1,2018,8580,8580,Mondolkiri,C580Y,multi,mono,mutant
+8727_align_sorted,other,2018,8727,8727,Rattanakiri,C580Y,mono,multi,sensible
+8736_align_sorted,other,2018,8736,8736,Rattanakiri,C580Y,mono,multi,NA
+8784_align_sorted,other,2018,8784,8784,Pursat,WT,multi,mono,mutant
+8805_align_sorted,other,2018,8805,8805,Kampong Speu,Y493H,mono,mono,mutant
+8894_align_sorted,other,2018,8894,8894,Kratie,WT,multi,mono,mutant
+8932_align_sorted,other,2018,8932,8932,Kampong Speu,Y493H,mono,mono,mutant
+8936_align_sorted,other,2018,8936,8936,Kampong Speu,Y493H,mono,mono,mutant
+8945_align_sorted,other,2018,8945,8945,Kampong Speu,Y493H,mono,mono,mutant
+8961_align_sorted,other,2018,8961,8961,Kampong Speu,Y493H,mono,mono,mutant
+9023_align_sorted,other,2019,9023,9023,Kampong Speu,C580Y,mono,mono,sensible
+9033_align_sorted,other,2019,9033,9033,Rattanakiri,WT,mono,mono,sensible
+9034_align_sorted,KEL1/PLA1,2019,9034,9034,Pursat,C580Y,multi,mono,mutant
+9039_align_sorted,other,2019,9039,9039,Rattanakiri,C580Y,mono,mono,sensible
+9042_align_sorted,other,2019,9042,9042,Rattanakiri,C580Y,mono,multi,sensible
+9045_align_sorted,other,2019,9045,9045,Rattanakiri,C580Y,mono,multi,sensible
+9048_align_sorted,other,2019,9048,9048,Rattanakiri,WT,mono,mono,sensible
+9050_align_sorted,KEL1/PLA1,2019,9050,9050,Kampong Speu,C580Y,multi,mono,mutant
+9052_align_sorted,KEL1/PLA1,2019,9052,9052,Rattanakiri,C580Y,multi,mono,sensible
+9053_align_sorted,other,2019,9053,9053,Rattanakiri,C580Y,mono,mono,sensible
+9056_align_sorted,other,2019,9056,9056,Kampong Speu,C580Y,mono,mono,mutant
+9057_align_sorted,other,2019,9057,9057,Kampong Speu,C580Y,mono,mono,mutant
+9058_align_sorted,KEL1/PLA1,2019,9058,9058,Kampong Speu,C580Y,multi,multi,mutant
+9059_align_sorted,other,2019,9059,9059,Rattanakiri,C580Y,mono,multi,sensible
+9061_align_sorted,other,2019,9061,9061,Rattanakiri,C580Y,mono,multi,sensible
+9062_align_sorted,other,2019,9062,9062,Rattanakiri,C580Y,mono,multi,sensible
+9065_align_sorted,other,2019,9065,9065,Rattanakiri,C580Y,mono,multi,sensible
+9067_align_sorted,other,2019,9067,9067,Rattanakiri,C580Y,mono,multi,sensible
+9069_align_sorted,other,2019,9069,9069,Rattanakiri,C580Y,mono,multi,sensible
+9070_align_sorted,other,2019,9070,9070,Rattanakiri,C580Y,mono,mono,sensible
+9071_align_sorted,other,2019,9071,9071,Rattanakiri,C580Y,mono,multi,sensible
+9073_align_sorted,other,2019,9073,9073,Kampong Speu,C580Y,mono,mono,mutant
+9075_align_sorted,other,2019,9075,9075,Rattanakiri,C580Y,mono,multi,sensible
+9077_align_sorted,other,2019,9077,9077,Rattanakiri,C580Y,mono,multi,sensible
+9078_align_sorted,other,2019,9078,9078,Rattanakiri,C580Y,mono,multi,sensible
+9080_align_sorted,other,2019,9080,9080,Rattanakiri,C580Y,mono,multi,sensible
+9081_align_sorted,other,2019,9081,9081,Rattanakiri,C580Y,mono,multi,sensible
+9082_align_sorted,other,2019,9082,9082,Kratie,WT,mono,mono,sensible
+9083_align_sorted,other,2019,9083,9083,Kampong Speu,C580Y,mono,mono,mutant
+9086_align_sorted,other,2019,9086,9086,Rattanakiri,C580Y,mono,mono,sensible
+9088_align_sorted,other,2019,9088,9088,Kampong Speu,C580Y,mono,mono,mutant
+9090_align_sorted,other,2019,9090,9090,Pursat,Y493H,mono,mono,sensible
+9093_align_sorted,other,2019,9093,9093,Kampong Speu,Y493H,mono,multi,sensible
+9095_align_sorted,other,2019,9095,9095,Pursat,Y493H,mono,mono,sensible
+9096_align_sorted,other,2019,9096,9096,Kampong Speu,C580Y,mono,mono,mutant
+9097_align_sorted,other,2019,9097,9097,Pursat,Y493H,mono,multi,sensible
+9098_align_sorted,other,2019,9098,9098,Pursat,Y493H,mono,mono,sensible
+9123_align_sorted,other,2019,9123,9123,Pursat,Y493H,mono,mono,sensible
+9167_align_sorted,other,2019,9167,9167,Pursat,Y493H,mono,multi,sensible
+9175_align_sorted,other,2019,9175,9175,Pursat,Y493H,mono,multi,sensible
+9204_sorted,other,2020,9204,9204,Rattanakiri,R539T,mono,mono,sensible
+9205_sorted,other,2020,9205,9205,Rattanakiri,R539T,mono,mono,sensible
+9206_sorted,other,2020,9206,9206,Rattanakiri,R539T,mono,mono,sensible
+9211_sorted,other,2020,9211,9211,Kampong Speu,Y493H,mono,mono,mutant
+9212_sorted,other,2020,9212,9212,Kampong Speu,Y493H,mono,mono,mutant
+9213_sorted,other,2020,9213,9213,Kampong Speu,WT,multi,mono,mutant
+9214_sorted,other,2020,9214,9214,Kampong Speu,Y493H,multi,mono,mutant
+9215_sorted,other,2020,9215,9215,Kampong Speu,C580Y,mono,mono,mutant
+9216_sorted,other,2020,9216,9216,Kampong Speu,WT,mono,mono,mutant
+9217_sorted,other,2020,9217,9217,Kampong Speu,C580Y,mono,mono,mutant
+9218_sorted,other,2020,9218,9218,Kampong Speu,Y493H,mono,mono,mutant
+9219_sorted,other,2020,9219,9219,Kampong Speu,Y493H,mono,mono,mutant
+9220_sorted,other,2020,9220,9220,Kampong Speu,WT,mono,mono,mutant
+9221_sorted,other,2020,9221,9221,Kampong Speu,Y493H,mono,mono,mutant
+9222_sorted,other,2020,9222,9222,Rattanakiri,WT,mono,mono,sensible
+9224_sorted,other,2020,9224,9224,Rattanakiri,WT,mono,multi,sensible
+9225_sorted,other,2020,9225,9225,Kampong Speu,Y493H,mono,mono,mutant
+9226_sorted,other,2020,9226,9226,Kampong Speu,Y493H,mono,mono,mutant
+9232_sorted,other,2020,9232,9232,Rattanakiri,WT,mono,mono,sensible
+9233_sorted,other,2020,9233,9233,Rattanakiri,WT,mono,multi,sensible
+9234_sorted,other,2020,9234,9234,Rattanakiri,R539T,mono,mono,sensible
+9238_sorted,other,2020,9238,9238,Kampong Speu,Y493H,mono,mono,NA
+9243_sorted,other,2020,9243,9243,Kampong Speu,C580Y,mono,mono,mutant
+9244_sorted,other,2020,9244,9244,Rattanakiri,WT,mono,multi,sensible
+9245_sorted,other,2020,9245,9245,Rattanakiri,WT,mono,multi,sensible
+9246_sorted,other,2020,9246,9246,Rattanakiri,WT,mono,multi,sensible
+9247_sorted,other,2020,9247,9247,Rattanakiri,WT,mono,multi,sensible
+9248_sorted,other,2020,9248,9248,Rattanakiri,WT,mono,multi,sensible
+9250_sorted,other,2020,9250,9250,Kampong Speu,Y493H,mono,mono,mutant
+9252_sorted,other,2020,9252,9252,Rattanakiri,WT,mono,multi,sensible
+9253_sorted,other,2020,9253,9253,Rattanakiri,WT,mono,multi,NA
+9255_sorted,other,2020,9255,9255,Kampong Speu,Y493H,mono,mono,mutant
+9257_sorted,other,2020,9257,9257,Rattanakiri,C580Y,mono,mono,mutant
+9258_sorted,other,2020,9258,9258,Stung Treng,WT,mono,mono,sensible
+9259_sorted,other,2020,9259,9259,Stung Treng,WT,mono,mono,NA
+9260_sorted,other,2020,9260,9260,Stung Treng,WT,mono,mono,sensible
+9263_sorted,other,2020,9263,9263,Rattanakiri,WT,mono,mono,sensible
+9264_sorted,other,2020,9264,9264,Kampong Speu,Y493H,mono,mono,mutant
+9265_sorted,other,2020,9265,9265,Stung Treng,WT,mono,mono,sensible
+9266_sorted,other,2020,9266,9266,Stung Treng,WT,mono,mono,sensible
+9267_sorted,other,2020,9267,9267,Stung Treng,WT,mono,mono,sensible
+9268_sorted,other,2021,9268,9268,Rattanakiri,C580Y,mono,mono,sensible
+9269_sorted,other,2021,9269,9269,Rattanakiri,WT,mono,mono,sensible
+9272,other,2021,9272,9272,Kampong Speu,Y493H,mono,mono,NA
+9273,other,2021,9273,9273,Kampong Speu,C580Y,mono,mono,NA
+9274,other,2021,9274,9274,Kampong Speu,Y493H,mono,mono,NA
+9275,other,2021,9275,9275,Kampong Speu,Y493H,mono,mono,NA
+9276,other,2021,9276,9276,Kampong Speu,C580Y,mono,mono,NA
+9277,other,2021,9277,9277,Kampong Speu,C580Y,mono,mono,NA
+9278,other,2021,9278,9278,Kampong Speu,C580Y,mono,mono,NA
+9279,other,2021,9279,9279,Kampong Speu,C580Y,mono,mono,NA
+9280,other,2021,9280,9280,Kampong Speu,C580Y,mono,mono,NA
+9281,other,2021,9281,9281,Kampong Speu,C580Y,mono,mono,NA
+9282,other,2021,9282,9282,Kampong Speu,C580Y,mono,mono,NA
+9283,other,2021,9283,9283,Kampong Speu,C580Y,mono,mono,NA
+9284,other,2021,9284,9284,Kampong Speu,C580Y,mono,mono,NA
+9285,KEL1/PLA1,2021,9285,9285,Kampong Speu,C580Y,multi,mono,NA
+9286,other,2021,9286,9286,Kampong Speu,Y493H,mono,mono,NA
+9287,other,2022,9287,9287,Kampong Speu,Y493H,mono,mono,NA
+9288,other,2022,9288,9288,Kampong Speu,C580Y,mono,mono,NA
+9289,other,2022,9289,9289,Kampong Speu,C580Y,mono,mono,NA
+9290,other,2022,9290,9290,Kampong Speu,Y493H,mono,mono,NA
+9291,other,2022,9291,9291,Kampong Speu,C580Y,mono,mono,NA
+9292,other,2022,9292,9292,Kampong Speu,C580Y,mono,mono,NA
+9293,other,2022,9293,9293,Stung Treng,WT,mono,mono,NA
+9294,other,2022,9294,9294,Stung Treng,WT,mono,mono,NA
+9295,other,2022,9295,9295,Stung Treng,WT,mono,mono,NA
+9296,other,2022,9296,9296,Kratie,WT,mono,mono,NA
+9297,other,2022,9297,9297,Kratie,WT,mono,mono,NA
+9298,other,2022,9298,9298,Kratie,WT,mono,mono,NA
+9299,other,2022,9299,9299,Stung Treng,WT,mono,mono,NA
+9300,other,2022,9300,9300,Stung Treng,WT,mono,mono,NA
+9301,other,2022,9301,9301,Stung Treng,WT,mono,mono,NA
+9302,other,2022,9302,9302,Kratie,WT,mono,mono,NA
+9303,other,2022,9303,9303,Kratie,WT,mono,mono,NA
+9304,other,2022,9304,9304,Kratie,WT,mono,mono,NA
+9305,other,2022,9305,9305,Kratie,WT,mono,mono,NA
+9306,other,2022,9306,9306,Kratie,WT,multi,mono,NA
+9307,other,2022,9307,9307,Kratie,WT,mono,mono,NA
