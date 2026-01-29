@@ -1,3 +1,17 @@
+# ==============================================================================
+# SCRIPT OBJECTIVE:
+# This script generates a figure visualizing the 
+# temporal evolution of Plasmodium falciparum genetic relatedness in Cambodia 
+# (2016-2022). 
+#
+# It performs the following tasks:
+# 1. Constructs Identity-by-Descent (IBD) networks to visualize transmission 
+#    clusters over time (Panel A).
+# 2. Computes and plots longitudinal metrics, including the number of clusters, 
+#    clustering rates, and genotype prevalence (Panel B).
+# 3. Highlights the impact of the drug policy shift (DHA-PPQ to AS-MQ) in 2018.
+# ==============================================================================
+
 # ================== IBD networks — Cambodia (PUBLICATION READY - ITALIC FIX) ==================
 
 suppressPackageStartupMessages({
@@ -13,16 +27,17 @@ suppressPackageStartupMessages({
   library(tidyr)
 })
 
+# Set working directory
 setwd("/media/annacosson/ANNA_DD/STAGE_M2/Projet_Asie_du_Sud_Est/Article/IBD")
 
-# ---------- PARAMS ----------
+# ---------- PARAMETERS ----------
 file_ibd    <- "/media/annacosson/ANNA_DD/STAGE_M2/Projet_Asie_du_Sud_Est/Article/IBD/hmmIBD/IBD_fract.txt"
 file_kel1   <- "metadata_complet_fusionne.csv"
 
 ibd_threshold <- 0.95
 year_min <- 2016L; year_max <- 2022L
 
-# Couleurs (clés texte standard pour le mapping)
+# Color palette (standard text keys for mapping)
 kel_palette <- c(
   "KEL1/PLA1 (ART-R/PPQ-R)" = "#FF66CC",
   "k13-mut/MDR1-multi (ART-R/MQ-R)" = "#00C080",
@@ -30,7 +45,7 @@ kel_palette <- c(
 )
 to_norm <- function(x) tolower(trimws(x))
 
-# ---------- 1) LOAD & PREP ----------
+# ---------- 1) DATA LOADING & PREPARATION ----------
 ibd_raw <- read_delim(file_ibd, delim = "\t", show_col_types = FALSE)
 kel1_raw <- read_csv(file_kel1, show_col_types = FALSE)
 
@@ -63,7 +78,7 @@ edges <- ibd_raw %>%
 
 if (nrow(nodes) == 0) stop("No eligible nodes.")
 
-# ---------- 2) THEME "PUBLICATION" ----------
+# ---------- 2) PUBLICATION THEME ----------
 theme_pub <- theme_classic(base_size = 15) +
   theme(
     text = element_text(color = "black"),
@@ -124,7 +139,7 @@ plot_year_clean <- function(y){
       ggtitle(lbl)
   }
   
-  # --- MODIF 1: Ajout des labels avec expression italique ---
+  # --- MODIFICATION 1: Add labels with italic expression ---
   return(p + scale_fill_manual(
     values = kel_palette,
     labels = c(
@@ -178,7 +193,7 @@ p2 <- ggplot(metrics, aes(Year, share_clustered)) +
 p3 <- ggplot(metrics_long, aes(x = Year, y = fraction, fill = genotype)) +
   geom_col(position = "stack", width = 0.75, color = "white", size = 0.2) +
   
-  # --- MODIF 2: Ajout des labels avec expression italique ---
+  # --- MODIFICATION 2: Add labels with italic expression ---
   scale_fill_manual(
     values = kel_palette,
     labels = c(
@@ -189,13 +204,13 @@ p3 <- ggplot(metrics_long, aes(x = Year, y = fraction, fill = genotype)) +
   ) +
   
   v_line +
-  # --- ICI : ON FORCE TOUTES LES ANNÉES ---
+  # --- NOTE: FORCE BREAKS FOR ALL YEARS ---
   scale_x_continuous(breaks = 2016:2022) + 
   # ----------------------------------------
   scale_y_continuous(labels = percent_format(accuracy = 1), limits = c(0,1), expand = c(0,0)) +
   labs(title = "Genotype Prevalence", x = NULL, y = "Proportion", fill = "Genotype") +
   theme_pub + theme(legend.position = c(-0.45,0.5),
-                    legend.title = element_text(face = "bold", size = 30), # Taille du titre "Genotype"
+                    legend.title = element_text(face = "bold", size = 30), # Title size "Genotype"
                     legend.text = element_text(size = 25)
                     )
 
@@ -205,22 +220,22 @@ panel_B_col <- cowplot::plot_grid(p1, p2, p3, ncol = 1, align = "v")
 
 # ---------- 6) FINAL ASSEMBLY (MANUAL LAYOUT / GGDRAW) ----------
 
-# 1. Rangée du haut (50/50)
+# 1. Top row (50/50 split)
 top_row <- cowplot::plot_grid(panel_A, panel_B_col, ncol = 2, rel_widths = c(1, 1))
 
-# 2. Structure complète avec légende en bas
+# 2. Complete structure with legend at the bottom
 final_structure <- cowplot::plot_grid(top_row, ncol = 1, rel_heights = c(1, 0.15))
 
-# 3. Calques (Labels A/B + Texte)
+# 3. Layers (Labels A/B + Text annotation)
 final_canvas <- ggdraw(final_structure) +
   
   # Label A
   draw_label("A", x = 0.01, y = 0.985, size = 24, fontface = "bold", hjust = 0) +
   
-  # Label B (Milieu)
+  # Label B (Middle)
   draw_label("B", x = 0.51, y = 0.985, size = 24, fontface = "bold", hjust = 0) +
   
-  # Phrase
+  # Annotation text
   draw_label(
     "Dashed line (2018): switch from DHA-PPQ to AS-MQ", 
     x = 0.98, y = 0.95, 
@@ -229,8 +244,6 @@ final_canvas <- ggdraw(final_structure) +
 
 print(final_canvas)
 
-# Sauvegarde
+# Save outputs
 ggsave("IBD_Cambodia_Final.png", final_canvas, width = 21, height = 13, dpi = 350)
 ggsave("IBD_Cambodia_Final.pdf", final_canvas, width = 21, height = 13, dpi = 350)
-
-message("✅ Figure sauvegardée : Layout manuel conservé, k13 en italique.")
