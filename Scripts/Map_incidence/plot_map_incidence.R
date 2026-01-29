@@ -1,6 +1,21 @@
+# ==============================================================================
+# SCRIPT OBJECTIVE:
+# This script generates a figure visualizing the spatiotemporal evolution of Plasmodium falciparum 
+# antimalarial drug resistance in Cambodia from 2016 to 2022.
+#
+# It performs the following:
+# 1. Maps the prevalence of key molecular markers (K13, PfPM2, PfMDR1, PfCRT, KEL1)
+#    across provinces and years.
+# 2. Correlates these genetic trends with national treatment policies (DHA-PPQ vs AS-MQ)
+#    and malaria incidence rates (API).
+# 
+# ==============================================================================
+
+# 
+
 # ===============================================
 # FIGURE – Cambodia 2016–2022
-# (Version PRO v7 - Polices "Poster")
+# (Version PRO v7 - "Poster" Fonts)
 # ===============================================
 
 # --- Packages ---
@@ -13,28 +28,28 @@ library(rnaturalearthdata)
 library(cowplot)
 library(RColorBrewer)
 
-# --- (optionnel) ton dossier de travail ---
+# --- (Optional) Your working directory ---
 setwd("/media/annacosson/ANNA_DD/STAGE_M2/Projet_Asie_du_Sud_Est/Article/Map/Data/")
 
-# +++ PÉRIODES DE TRAITEMENT (CORRIGÉES) +++
+# +++ TREATMENT PERIODS (CORRECTED) +++
 treatment_data <- data.frame(
   policy = factor(c("DHA-PPQ", "AS-MQ"), levels = c("DHA-PPQ", "AS-MQ")),
-  start = c(2015.5, 2018.0), # <-- MODIFIÉ
-  end = c(2018.0, 2022.5)  # <-- MODIFIÉ
+  start = c(2015.5, 2018.0), # <-- MODIFIED
+  end = c(2018.0, 2022.5)  # <-- MODIFIED
 )
 
-# +++ Données d'incidence (API/1000) +++
+# +++ Incidence Data (API/1000) +++
 incidence_data <- data.frame(
   Year = 2016:2022,
   API_1000 = c(1.6, 3.13, 4.18, 2.1, 0.59, 0.27, 0.25)
 )
 
-# --- 1) Lire le fichier propre ---
+# --- 1) Read clean file ---
 df <- read.csv("Final_data/metadata_merged_with_CRT_with_KEL1.csv",
                header = TRUE, sep = ",", dec = ",",
                stringsAsFactors = FALSE)
 
-# Nettoyage basique + filtre années
+# Basic cleaning + Year filter
 df <- df %>%
   mutate(
     Year = as.integer(Year),
@@ -43,11 +58,11 @@ df <- df %>%
   ) %>%
   filter(Year >= 2016, Year <= 2022)
 
-# --- 1b) Calculer le N total par année ---
+# --- 1b) Calculate Total N per year ---
 year_totals <- df %>%
   count(Year, name = "N_Total")
 
-# --- 2) Agrégations par province × année ---
+# --- 2) Aggregations by Province x Year ---
 agg <- df %>%
   group_by(Province, Year) %>%
   summarise(
@@ -83,7 +98,7 @@ agg <- df %>%
     .groups = "drop"
   )
 
-# --- 4) Géodonnées & normalisation des noms ---
+# --- 4) Geodata & Name normalization ---
 norm_name <- function(x){
   x |>
     iconv(to = "ASCII//TRANSLIT") |>
@@ -117,31 +132,31 @@ agg_norm <- agg %>%
   mutate(name_norm = dplyr::recode(name_norm, !!!alias_map))
 
 
-# --- 5) Palettes & thème ---
+# --- 5) Palettes & Theme ---
 fill_pal_K13  <- colorRampPalette(brewer.pal(9, "YlOrRd"))
 fill_pal_PMII <- colorRampPalette(brewer.pal(9, "PuBu"))
 fill_pal_MDR1 <- colorRampPalette(brewer.pal(9, "YlGn"))
 fill_pal_CRT  <- colorRampPalette(RColorBrewer::brewer.pal(9, "Purples"))
 fill_pal_KEL1 <- colorRampPalette(c("#fde0dd", "#f768a1", "#c51b8a"))
 
-# --- MODIFIÉ : Ajout de la taille des barres de légende ---
-base_theme <- theme_minimal(base_size = 19) + # (Garde la grande taille de police)
+# --- MODIFIED: Added legend bar sizes ---
+base_theme <- theme_minimal(base_size = 19) + # (Keeps large font size)
   theme(panel.grid = element_blank(),
         strip.text = element_text(face = "bold"),
         plot.title  = element_text(face = "bold", size = 21),
         legend.position = "right",
-        # Supprime les coordonnées des cartes
+        # Remove map coordinates
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         
-        # +++ NOUVEAU : Agrandir les barres de légende +++
-        # (Tu peux ajuster les valeurs 3.0 et 1.2 si c'est trop/pas assez)
-        legend.key.height = unit(1.5, "cm"), # Hauteur de la barre
-        legend.key.width = unit(1.5, "cm")  # Épaisseur de la barre
-        # +++ FIN NOUVEAU +++
+        # +++ NEW: Enlarge legend keys +++
+        # (You can adjust values 3.0 and 1.2 if it's too much/not enough)
+        legend.key.height = unit(1.5, "cm"), # Bar height
+        legend.key.width = unit(1.5, "cm")  # Bar thickness
+        # +++ END NEW +++
   )
 
-# --- 6) Carte unitaire ---
+# --- 6) Unitary Map Function ---
 map_one <- function(df_sf, fill_var, title,
                     limits = c(0,100),
                     legend_title = "%",
@@ -207,10 +222,10 @@ map_one <- function(df_sf, fill_var, title,
       title = if(show_title) title else NULL,
       subtitle = N_label
     ) +
-    base_theme + # Utilise le base_theme mis à jour (base_size = 19)
+    base_theme + # Uses updated base_theme (base_size = 19)
     theme(
-      # --- MODIFIÉ : Taille du N=... augmentée ---
-      plot.subtitle = element_text(size = 27, hjust = 0, margin = margin(b = 4)), # <-- MODIFIÉ (12->17)
+      # --- MODIFIED: Increased size of N=... ---
+      plot.subtitle = element_text(size = 27, hjust = 0, margin = margin(b = 4)), # <-- MODIFIED (12->17)
       plot.margin = margin(2,2,2,2), 
       legend.position = if(show_legend) "right" else "none"
     )
@@ -218,10 +233,10 @@ map_one <- function(df_sf, fill_var, title,
 
 
 # ===============================================
-# --- SECTION DES FONCTIONS D'ASSEMBLAGE ---
+# --- ASSEMBLY FUNCTIONS SECTION ---
 # ===============================================
 
-# +++ Fonction pour la barre de traitement ---
+# +++ Function for Treatment Bar ---
 plot_treatment_bar <- function(df_treat, year_range) {
   
   x_limits <- c(min(year_range) - 0.5, max(year_range) + 0.5)
@@ -229,16 +244,16 @@ plot_treatment_bar <- function(df_treat, year_range) {
   ggplot(df_treat) +
     geom_rect(aes(xmin = start, xmax = end, ymin = 0, ymax = 1, fill = policy), 
               color = "white", linewidth = 0.5) +
-    # --- MODIFIÉ : Taille augmentée ---
+    # --- MODIFIED: Increased size ---
     geom_text(aes(x = (start + end) / 2, y = 0.5, label = policy), 
-              color = "white", fontface = "bold", size = 11.5) + # <-- MODIFIÉ (6.5->11.5)
+              color = "white", fontface = "bold", size = 11.5) + # <-- MODIFIED (6.5->11.5)
     scale_x_continuous(limits = x_limits, expand = c(0,0)) +
     scale_fill_manual(values = c("DHA-PPQ" = "#1b9e77", "AS-MQ" = "#d95f02")) +
     theme_void() +
     theme(legend.position = "none")
 }
 
-# +++ Fonction pour la courbe d'incidence ---
+# +++ Function for Incidence Curve ---
 plot_incidence_curve <- function(df_incidence) {
   
   x_limits <- c(min(df_incidence$Year) - 0.5, max(df_incidence$Year) + 0.5)
@@ -246,11 +261,11 @@ plot_incidence_curve <- function(df_incidence) {
   ggplot(df_incidence, aes(x = Year, y = API_1000)) +
     geom_line(color = "#005a9e", linewidth = 1.2) +
     geom_point(color = "#005a9e", size = 3) +
-    # --- MODIFIÉ : Taille des valeurs API augmentée ---
+    # --- MODIFIED: Increased API values size ---
     geom_text(
       aes(label = format(API_1000, decimal.mark = ",")),
       vjust = -0.8, 
-      size = 11.5, # <-- MODIFIÉ (6.5->11.5)
+      size = 11.5, # <-- MODIFIED (6.5->11.5)
       color = "black"
     ) +
     scale_x_continuous(breaks = df_incidence$Year, limits = x_limits, expand = c(0,0)) +
@@ -263,11 +278,11 @@ plot_incidence_curve <- function(df_incidence) {
       x = NULL, 
       y = "API / 1,000"
     ) +
-    # --- MODIFIÉ : Thème de base plus grand ---
-    theme_classic(base_size = 26) + # <-- MODIFIÉ (16->21)
+    # --- MODIFIED: Larger base theme ---
+    theme_classic(base_size = 26) + # <-- MODIFIED (16->21)
     theme(
-      plot.title = element_text(hjust = 0.5, size = 23, face = "bold"), # <-- MODIFIÉ (18->23)
-      axis.title.y = element_text(face = "bold", size = 19), # <-- MODIFIÉ (14->19)
+      plot.title = element_text(hjust = 0.5, size = 23, face = "bold"), # <-- MODIFIED (18->23)
+      axis.title.y = element_text(face = "bold", size = 19), # <-- MODIFIED (14->19)
       panel.border = element_rect(color = "black", fill = NA, linewidth = 0.7),
       panel.grid.major.y = element_line(color = "grey85", linetype = "dashed"),
       axis.title.x = element_blank(),
@@ -278,7 +293,7 @@ plot_incidence_curve <- function(df_incidence) {
     )
 }
 
-# +++ Fonction pour la rangée de labels d'année ---
+# +++ Function for Year Label Row ---
 plot_year_labels_row <- function(years, year_totals_df) {
   
   labels_list <- lapply(years, function(y) {
@@ -288,20 +303,20 @@ plot_year_labels_row <- function(years, year_totals_df) {
     
     year_label <- paste0(y, " (N = ", total_n, ")")
     
-    # --- MODIFIÉ : Taille augmentée ---
+    # --- MODIFIED: Increased size ---
     cowplot::ggdraw() + 
-      cowplot::draw_label(year_label, fontface = "bold", size = 30) + # <-- MODIFIÉ (22->28)
+      cowplot::draw_label(year_label, fontface = "bold", size = 30) + # <-- MODIFIED (22->28)
       theme(plot.margin = margin(t = 20, b = 5)) 
   })
   
   cowplot::plot_grid(plotlist = labels_list, nrow = 1)
 }
 
-# +++ Fonction pour la colonne de labels des marqueurs ---
+# +++ Function for Marker Label Column ---
 plot_marker_labels <- function() {
   
-  # --- MODIFIÉ : 'label_size' augmenté ---
-  label_size <- 35 # <-- MODIFIÉ (16->22)
+  # --- MODIFIED: 'label_size' increased ---
+  label_size <- 35 # <-- MODIFIED (16->22)
   l1 <- ggdraw() + draw_label(bquote(bold(italic("k13")~" C580Y (%)")), size = label_size, x = 0.95, hjust = 1)
   l2 <- ggdraw() + draw_label(bquote(bold(italic("k13")~" Y493H (%)")), size = label_size, x = 0.95, hjust = 1)
   l3 <- ggdraw() + draw_label(bquote(bold(italic("k13")~" WT (%)")), size = label_size, x = 0.95, hjust = 1)
@@ -316,7 +331,7 @@ plot_marker_labels <- function() {
   plot_grid(l1, l2, l3, l4, l5, l6, l7, ncol = 1, align = "v")
 }
 
-# +++ Fonction pour la colonne de cartes (simplifiée) ---
+# +++ Function for Map Column (Simplified) ---
 plot_year_column <- function(year){ 
   
   d <- provinces_kh %>%
@@ -337,7 +352,7 @@ plot_year_column <- function(year){
   return(maps_column)
 }
 
-# +++ Fonction pour la grille de cartes (simplifiée) ---
+# +++ Function for Map Grid (Simplified) ---
 plot_all_years_grid <- function(years = sort(unique(agg_norm$Year))){
   
   columns <- lapply(years, plot_year_column) 
@@ -351,7 +366,7 @@ plot_all_years_grid <- function(years = sort(unique(agg_norm$Year))){
 }
 
 
-# +++ Fonction pour la colonne de légendes (avec alignement K13) ---
+# +++ Function for Legend Column (with K13 alignment) ---
 plot_legend_stack <- function(df_sf_dummy) {
   
   df_sf_dummy <- df_sf_dummy %>%
@@ -377,8 +392,8 @@ plot_legend_stack <- function(df_sf_dummy) {
       N_kel1 = NA_integer_
     )
   
-  # map_one() utilise maintenant base_theme(base_size=19),
-  # donc les légendes seront beaucoup plus grandes.
+  # map_one() now uses base_theme(base_size=19),
+  # so legends will be much larger.
   p_k13 <- map_one(df_sf_dummy, "pct_C580Y", "K13 (%)", show_legend = TRUE)
   l_k13 <- get_legend(p_k13)
   
@@ -403,77 +418,77 @@ plot_legend_stack <- function(df_sf_dummy) {
 
 
 # ===============================================
-# --- SECTION D'ASSEMBLAGE FINAL & EXPORT ---
+# --- FINAL ASSEMBLY & EXPORT SECTION ---
 # ===============================================
 
-# +++ Fonction d'assemblage final (logique 5 blocs) +++
+# +++ Final Assembly Function (5-block logic) +++
 save_final_plot <- function(
     out_png = "prevalence_KH_multi_years_FINAL.png",
     out_pdf = "prevalence_KH_multi_years_FINAL.pdf"
 ){
   
-  # --- 0. Données de base ---
+  # --- 0. Base Data ---
   yrs <- sort(unique(agg_norm$Year))
   
-  # --- 1. Générer TOUS les composants "bruts" ---
+  # --- 1. Generate ALL "raw" components ---
   treatment_bar_plot <- plot_treatment_bar(treatment_data, yrs)
   incidence_plot <- plot_incidence_curve(incidence_data)
   year_label_row <- plot_year_labels_row(yrs, year_totals) 
   map_grid_raw <- plot_all_years_grid(yrs) 
   
-  # --- MODIFIÉ : Taille du caption augmentée ---
+  # --- MODIFIED: Increased caption size ---
   global_caption <- ggdraw() + 
     cowplot::draw_label(
       "Grey = missing data",
-      fontface = "italic", x = 0.01, hjust = 0, size = 18 # <-- MODIFIÉ (13->18)
+      fontface = "italic", x = 0.01, hjust = 0, size = 18 # <-- MODIFIED (13->18)
     )
   
   labels_col_raw <- plot_marker_labels()
   legends_col_raw <- plot_legend_stack(provinces_kh) 
   
   
-  # --- 2. Assemblage en 5 blocs verticaux ---
+  # --- 2. Assembly into 5 vertical blocks ---
   
-  # [1] Barre, [2] Courbe, [3] Labels Année, [4] Cartes, [5] Caption
-  # --- MODIFIÉ : Augmentation de la hauteur des labels d'année ---
-  main_heights <- c(0.7, 5, 2.0, 22, 0.5) # <-- MODIFIÉ (1.5 -> 2.0, 0.3 -> 0.5)
+  # [1] Bar, [2] Curve, [3] Year Labels, [4] Maps, [5] Caption
+  # --- MODIFIED: Increased height for year labels ---
+  main_heights <- c(0.7, 5, 2.0, 22, 0.5) # <-- MODIFIED (1.5 -> 2.0, 0.3 -> 0.5)
   
   
-  # --- 2a. Colonne centrale ---
+  # --- 2a. Center Column ---
   main_content_col <- plot_grid(
     treatment_bar_plot,
     incidence_plot,
-    year_label_row,     # Bloc 3
-    map_grid_raw,       # Bloc 4
+    year_label_row,     # Block 3
+    map_grid_raw,       # Block 4
     global_caption,
     ncol = 1,
     align = "v",
     rel_heights = main_heights
   )
   
-  # --- 2b. Colonne de gauche (Labels) ---
+  # --- 2b. Left Column (Labels) ---
   labels_col_padded <- plot_grid(
     NULL,             
     NULL,             
     NULL,             
-    labels_col_raw,   # Bloc 4
+    labels_col_raw,   # Block 4
     NULL,             
     ncol = 1,
     rel_heights = main_heights 
   )
   
-  # --- 2c. Colonne de droite (Légendes) ---
+  # --- 2c. Right Column (Legends) ---
   legends_col_padded <- plot_grid(
     NULL,               
     NULL,               
     NULL,               
-    legends_col_raw,    # Bloc 4
+    legends_col_raw,    # Block 4
     NULL,               
     ncol = 1,
     rel_heights = main_heights 
   )
   
-  # --- 3. Assemblage horizontal ---
+  # --- 3. Horizontal Assembly ---
   final_plot <- plot_grid(
     labels_col_padded,  
     main_content_col,   
@@ -481,14 +496,14 @@ save_final_plot <- function(
     nrow = 1,
     align = "h", 
     
-    # --- MODIFIÉ : Plus de place pour les labels/légendes ---
-    rel_widths = c(2.8, length(yrs) + 1.5, 1.5) # <-- MODIFIÉ (1.8/1.2 -> 2.8/1.5)
+    # --- MODIFIED: More space for labels/legends ---
+    rel_widths = c(2.8, length(yrs) + 1.5, 1.5) # <-- MODIFIED (1.8/1.2 -> 2.8/1.5)
   )
   
-  # --- 4. Exporter ---
-  # --- MODIFIÉ : Augmentation de la taille TOTALE de l'image ---
-  new_width <- (length(yrs) * 4) + 7  # <-- MODIFIÉ (env. 35 pouces)
-  new_height <- 36 # <-- MODIFIÉ (env. 36 pouces)
+  # --- 4. Export ---
+  # --- MODIFIED: Increase TOTAL image size ---
+  new_width <- (length(yrs) * 4) + 7  # <-- MODIFIED (approx. 35 inches)
+  new_height <- 36 # <-- MODIFIED (approx. 36 inches)
   
   ggplot2::ggsave(out_png, final_plot,
                   width = new_width, height = new_height,
@@ -498,10 +513,10 @@ save_final_plot <- function(
                   width = new_width, height = new_height,
                   device = cairo_pdf, bg = "white")
   
-  print(paste("Figure finale (POLICES POSTER) sauvegardée en :", out_png, "et", out_pdf))
+  print(paste("Final figure (POSTER FONTS) saved to:", out_png, "and", out_pdf))
   
   # return(final_plot) 
 }
 
-# --- 10) Lancer ---
+# --- 10) Run ---
 save_final_plot()
